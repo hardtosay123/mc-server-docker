@@ -1,0 +1,21 @@
+version: "3.9"
+name: 'minecraft-server'
+services:
+  minecraft-server-1.20.4:
+    deploy:
+      resources:
+        limits:
+          cpus: 2
+          memory: 4096M
+        reservations:
+          cpus: 1
+          memory: 512M
+    container_name:  minecraft-server-1.20.4
+    privileged: true # this may not be necessary for all setups
+    restart: unless-stopped
+    image: ghcr.io/hardtosay123/minecraft-server-docker:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /mnt/toshiba1tb/some/path/to/server/directory:/app
+    ports:
+      - "25565:25565"
