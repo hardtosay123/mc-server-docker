@@ -9,7 +9,7 @@ services:
           memory: 4096M
         reservations:
           cpus: 1
-          memory: 512M
+          memory: 1024M
     container_name:  minecraft-server-1.20.4
     privileged: true # this may not be necessary for all setups
     restart: unless-stopped
