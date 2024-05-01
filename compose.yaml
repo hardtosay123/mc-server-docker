@@ -13,7 +13,7 @@ services:
     container_name:  minecraft-server-1.20.4
     privileged: true # this may not be necessary for all setups
     restart: unless-stopped
-    image: ghcr.io/hardtosay123/minecraft-server-docker:latest
+    image: ghcr.io/hardtosay123/mc-server-docker:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /mnt/toshiba1tb/some/path/to/server/directory:/app
