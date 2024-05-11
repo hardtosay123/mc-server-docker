@@ -6,18 +6,21 @@ services:
       resources:
         limits:
           cpus: '2.0'
-          memory: 4096M
+          memory: 4G
         reservations:
           cpus: '1.0'
-          memory: 1024M
+          memory: 1G
+    environment:
+      - PUID=1000
+      - PGID=1003
     container_name:  minecraft-server-1.20.4
     privileged: true # this may not be necessary for all setups
     restart: unless-stopped
     image: openjdk:21-jdk-bookworm
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /mnt/toshiba1tb/documents/minecraft/server/1.20.4:/app
+      - /mnt/samsung980pro250gb/documents/minecraft/server/1.20.4:/app
     ports:
       - "25565:25565"
     working_dir: /app
-    command: java -Xmx4096M -Xms2048M -jar minecraft_server.jar nogui
+    command: java -Xmx4G -Xms2G -jar minecraft_server.jar nogui
