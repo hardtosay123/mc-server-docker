@@ -2,6 +2,7 @@ version: "3.9"
 name: 'minecraft-server'
 services:
   minecraft-server-1.20.4:
+    user: 1000:1003
     deploy:
       resources:
         limits:
@@ -10,9 +11,6 @@ services:
         reservations:
           cpus: '1.0'
           memory: 1G
-    environment:
-      - PUID=1000
-      - PGID=1003
     container_name:  minecraft-server-1.20.4
     privileged: true # this may not be necessary for all setups
     restart: unless-stopped
